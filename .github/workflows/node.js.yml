@@ -23,6 +23,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
     - run: |
+        echo '安装依赖'
+        npm install
         echo '删除旧的打包文件'
         rm -rf ./dist
         sleep 2
