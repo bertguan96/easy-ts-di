@@ -4,10 +4,10 @@ import resolve from "rollup-plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 
 export default {
-  input: "build/bundle.js",
+  input: "dist/bundle.js",
   output: [
     {
-      file: "build/index.js",
+      file: "dist/index.js",
       format: "cjs",
       exports: "named",
     },
