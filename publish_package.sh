@@ -8,9 +8,9 @@ echo '切换正常源！'
 npm config set registry http://registry.npmjs.org
 sleep 2
 echo '复制发布文件！'
-cp package.json ~/code/simple-di/dist/package.json
+cp package.json ./dist/package.json
 sleep 2
-cp README.md ~/code/simple-di/dist/README.md
+cp README.md ./dist/README.md
 sleep 2
 npm publish ./dist
 sleep 2
