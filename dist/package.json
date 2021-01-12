@@ -4,9 +4,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "npm run clean && rm -rf dist && rollup --config ./rollup.typescript.config.js && rollup --config ./rollup.config.js && rm -rf dist/bundle.js",
+    "build": "npm run clean && rm -rf ./dist && rollup --config ./rollup.typescript.config.js && rollup --config ./rollup.config.js && rm -rf ./dist/bundle.js",
     "build:ts": "rollup --config ./rollup.typescript.config.js",
-    "clean": "rm -rf build dist .rpt2_cache",
+    "clean": "rm -rf ./build ./dist .rpt2_cache",
     "pub-publish": "npm run build && npm publish"
   },
   "repository": {
