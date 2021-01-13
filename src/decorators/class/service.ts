@@ -1,8 +1,6 @@
+import { ConstructableFunction } from "../../common";
 import { SimpleContainer } from "../../container/container";
 
-interface ConstructableFunction extends Function {
-    new(): any;
-}
 /**
  * 自定义 id 初始化
  */

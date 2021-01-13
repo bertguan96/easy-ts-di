@@ -1,3 +1,5 @@
+import { TaskManager } from './task_manager';
+import { BeanDefinition } from '../common';
 import { BaseLoader } from "./base_loader";
 import { ILoader } from "./Iloader";
 /**
@@ -5,24 +7,20 @@ import { ILoader } from "./Iloader";
  */
 export class TSLoader extends BaseLoader implements ILoader{
 
-    private firstLoader: Object[];
-    private idleLoader: Object[];
+    private taskManager: TaskManager;
 
-    /**
-     * 空闲时加载器
-     */
-    public scriptIdleLoader(jsObject: Object[]): boolean | undefined {
-        console.log(jsObject);
-        this.analysisTask(); // 分析任务（区分那些需要首次加载，哪些需要空闲时候加载）
-        window.requestIdleCallback(this.runtask.bind(this), { timeout: 2000 })
+    constructor() {
+        super();
+        this.taskManager = new TaskManager();
+    }
+
+    public scriptLoader(jsObjects: BeanDefinition[], lazyLoad?: boolean): boolean | undefined {
+        jsObjects.forEach((jsObject) => {
+            this.taskManager.runTask(jsObject);
+        });
+        console.info(`[info] object load! [time]${performance.now()}ms!`);
         return true;
     }
+    
 
-    private analysisTask() {
-
-    }
-
-    private runtask() {
-        // 
-    }
 }
