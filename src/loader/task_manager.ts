@@ -5,8 +5,11 @@ import { SimpleContainer } from './../container/container';
  */
 export class TaskManager {
 
+    private container = new SimpleContainer();
+
     public runTask(beanDefinition: BeanDefinition): void {
         const newObject = new beanDefinition.script();
         const featureName = beanDefinition.beanName !== '' ? beanDefinition.beanName : beanDefinition.script.name;
+        this.container.set(featureName, newObject);
     }
 }
