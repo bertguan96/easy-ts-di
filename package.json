@@ -7,7 +7,8 @@
     "build": "npm run clean && rm -rf ./dist && rollup --config ./rollup.typescript.config.js && rollup --config ./rollup.config.js && rm -rf ./dist/bundle.js",
     "build:ts": "rollup --config ./rollup.typescript.config.js",
     "clean": "rm -rf ./build ./dist .rpt2_cache",
-    "pub-publish": "npm run build && npm publish"
+    "pub-publish": "npm run build && npm publish",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
